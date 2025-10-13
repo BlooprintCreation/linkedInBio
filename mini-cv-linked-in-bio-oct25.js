@@ -1,22 +1,28 @@
-﻿document.querySelectorAll('.accordion-header').forEach(header => {
+﻿// --- ACCORDÉON ---
+document.querySelectorAll('.accordion-header').forEach(header => {
   header.addEventListener('click', () => {
-     const content = header.nextElementSibling;
-     
-     header.classList.toggle('active');
-    
+    const content = header.nextElementSibling;
+    header.classList.toggle('active');
     if (content.style.maxHeight) {
-      content.style.maxHeight = null; u
+      content.style.maxHeight = null;
     } else {
       content.style.maxHeight = content.scrollHeight + "px"; 
     }
   });
 });
 
-// --- Toggle dark/light ---
+// --- DARK/LIGHT TOGGLE ---
 const toggle = document.getElementById('theme-toggle');
+
+// Initialisation
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+  document.body.classList.add('dark');
+  toggle.checked = true;
+}
+
+// toggle
 toggle.addEventListener('change', () => {
   document.body.classList.toggle('dark', toggle.checked);
   localStorage.setItem('theme', toggle.checked ? 'dark' : 'light');
 });
-
- 
