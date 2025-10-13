@@ -1,0 +1,489 @@
+﻿/* ===================== RESET =====================
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===================== TYPO ET LAYOUT ===================== */
+html { font-size: 62.5%; }
+
+body {
+  font-size: 1.6rem;
+  font-family: var(--font-body); /* Changé pour --font-body */
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  background-color: var(--color-background);
+  color: var(--color-text-dark); /* Changé pour --color-text-dark */
+  margin: 0;
+}
+
+/* ===================== VARIABLES GLOBALES ===================== */
+:root {
+  --color-primary: #1994aa;
+  --color-accent: #E27A07;
+  --color-secondary: #575656;
+  --color-subtle: #D6D6D6;
+  --color-background: #FFFFFF;
+  --color-light: #F5F7FA;
+  --color-text-dark: #333333; /* Nouvelle variable */
+  --font-stack: 'Montserrat', sans-serif; /* Utilisé pour les titres */
+  --font-body: 'Arial', sans-serif; /* Utilisé pour le corps de texte */
+}
+
+/* --- THEME DARK --- */
+body.dark {
+  --color-primary: #6d9ac5;
+  --color-accent: #ac5a04;
+  --color-secondary: #d1d1d1;
+  --color-subtle: #555;
+  --color-background: #121212;
+  --color-light: #1E1E1E;
+  --color-text-dark: #fafafa; /* Texte clair en mode sombre */
+  background-color: var(--color-background);
+  color: var(--color-secondary);
+}
+
+/* ===================== HEADER ===================== */
+header {
+  text-align: center;
+  margin: 4rem 0 3rem;
+  max-width: 90%;
+}
+
+header h1 {
+  font-family: var(--font-stack);
+  font-weight: 700;
+  font-size: 4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+
+header p {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--color-secondary);
+  padding: 0 1rem;
+  margin-bottom: 0.5rem; /* Ajusté pour l'espacement */
+}
+
+/* ===================== BIO ===================== */
+ 
+header .bio-intro {
+  max-width: 700px;
+  margin: 1.5rem auto 0.5rem auto;
+  padding: 1.5rem;
+  font-size: 1.7rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--color-text-dark);
+  
+  border-radius: 10px;
+  background-color: var(--color-light);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+header .bio-intro strong {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* Mode sombre pour la bio */
+body.dark header .bio-intro {
+  background-color: var(--color-light);
+  color: var(--color-secondary);
+  border: 1px solid var(--color-subtle);
+}
+
+body.dark header .bio-intro strong {
+  color: var(--color-primary); 
+}
+
+
+/* ===================== BOUTONS PRINCIPAUX ===================== */
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 1rem;
+  width: 80%;
+  max-width: 1000px;
+  margin-bottom: 3rem;
+}
+
+main a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 49%;
+  padding: 1.2rem 2rem;
+  border-radius: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  gap: 0.5rem;
+
+  /* Effets */
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease,
+              background 0.4s ease,
+              color 0.4s ease,
+              box-shadow 0.4s ease;
+}
+
+main a i {
+  transition: transform 0.3s ease; /* Transition pour l'icône */
+  font-size: 2rem;
+}
+
+main a:hover i {
+  transform: scale(1.1) rotate(5deg); /* Animation de l'icône au survol */
+}
+
+main a.secondary {
+  border: 2px solid var(--color-primary);
+  background-color: transparent;
+  color: var(--color-primary);
+  box-shadow: 0 0 5px var(--color-primary) inset; /* Lueur subtile */
+}
+
+/* Hover - Gradient et glow */
+main a:hover {
+  transform: translateY(-2px) scale(1.05);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  color: var(--color-light);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+main a.secondary:hover {
+  border-color: var(--color-light); /* Ligne moins visible au survol */
+}
+
+/* Mode sombre boutons */
+body.dark main a.primary {
+  background-color: var(--color-primary);
+  color: var(--color-light);
+}
+
+body.dark main a.secondary {
+  border-color: var(--color-primary);
+  background-color: transparent;
+  color: var(--color-primary); /* Garder la couleur primaire pour le texte */
+}
+
+body.dark main a:hover {
+  color: var(--color-background); /* Texte sur le gradient */
+  background: linear-gradient(135deg, #c2d3ee, #e9eef1);
+}
+body.dark .accordion-header:hover {
+  color: #121212;
+}
+
+/* ===================== ACCORDÉON ===================== */
+.accordion {
+  width: 80%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.accordion-item {
+  border-radius: 0.8rem;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.accordion-item:hover {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transform: translateY(-2px);
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 1.8rem 1.5rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+  text-align: left;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--color-light);
+  transition: background 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 0.8rem;
+}
+
+/* Hover header - gradient et glow */
+.accordion-header:hover {
+  transform: translateY(-2px) scale(1.01);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  filter: brightness(1.05);
+}
+
+/* flèche animée */
+.accordion-header::after {
+  content: "▼";
+  transition: transform 0.3s ease;
+}
+
+.accordion-header.active::after {
+  transform: rotate(-180deg);
+}
+
+/* Couleurs distinctes (mode clair) */
+.accordion-item:nth-child(1) .accordion-header { background-color: var(--color-primary); }
+.accordion-item:nth-child(2) .accordion-header { background-color: var(--color-accent); }
+.accordion-item:nth-child(3) .accordion-header { background-color: var(--color-secondary); }
+
+/* icône à gauche du texte */
+.accordion-header i {
+  margin-right: 0.8rem;
+  font-size: 1.8rem;
+}
+
+/* Contenu accordéon */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease, background 0.4s ease;
+  background-color: var(--color-light); /* Utilisation de light pour le fond */
+  padding: 0 2rem;
+  border-left: 5px solid transparent;
+}
+
+.accordion-content a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--color-secondary);
+}
+
+.accordion-content.open {
+  padding: 1.5rem;
+}
+.accordion-item:nth-child(1) .accordion-content.open {
+  padding-top: 2.5rem;padding-bottom: 0.5rem; /* augmente légèrement le padding pour aérer la fin */
+}
+.accordion-item:nth-child(2) .accordion-content.open {
+  padding-top: 2.5rem;padding-bottom: 0.5rem; /* augmente légèrement le padding pour aérer la fin */
+}
+.accordion-item:nth-child(3) .accordion-content.open {
+ padding-top: 2.5rem; padding-bottom: 0.5rem; /* augmente légèrement le padding pour aérer la fin */
+}
+
+/* -------------------- COULEUR BORDURE COHÉRENTE (MODE CLAIR) -------------------- */
+
+/* Item 1 : Compétences (couleur primary) */
+.accordion-item:nth-child(1) .accordion-content {
+  border-left-color: var(--color-primary);
+}
+.accordion-item:nth-child(1) .accordion-content li strong {
+  color: var(--color-secondary); /* Couleur choisie pour le mode clair */
+}
+
+/* Item 2 : Expériences (couleur accent) */
+.accordion-item:nth-child(2) .accordion-content {
+  border-left-color: var(--color-accent);
+}
+.accordion-item:nth-child(2) .accordion-content li strong {
+  color: var(--color-accent); /* Mettre en évidence les catégories */
+}
+
+/* Item 3 : Contacts / Références (couleur secondary) */
+.accordion-item:nth-child(3) .accordion-content {
+  border-left-color: var(--color-secondary);
+}
+
+/* -------------------- CENTRAGE ET MARGE SECTION 3 (CONTACT) -------------------- */
+.accordion-item:nth-child(3) .accordion-content ul {
+    /* AJOUT CLÉ pour l'espace inférieur dans la section de contact */
+    padding-bottom: 1.5rem; 
+}
+
+.accordion-item:nth-child(3) .accordion-content li {
+  /* Centrage des éléments LI */
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px dashed var(--color-subtle); /* Maintenir la bordure */
+}
+
+.accordion-item:nth-child(3) .accordion-content li:last-child {
+    border-bottom: none;
+}
+
+.accordion-item:nth-child(3) .accordion-content li a {
+  /* Évite l'étirement du lien et centre le texte dans le lien */
+  flex-grow: 0;
+  text-align: center;
+}
+
+/* -------------------- FIN CENTRAGE SECTION 3 -------------------- */
+
+/* Conteneurs UL et LI GÉNÉRAUX */
+.accordion-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.accordion-content li {
+  padding: 0.8rem 0;
+  border-bottom: 1px dashed var(--color-subtle);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.accordion-content li:last-child {
+  border-bottom: none;
+  /* Ajout d'un padding pour l'esthétique générale, mais la marge est gérée par .accordion-content.open */
+  padding-bottom: 0.8rem; 
+}
+
+
+.accordion-content li:hover {
+  cursor: pointer;
+  background-color: var(--color-subtle);
+  transform: translateX(2px); /* Décalage au survol */
+}
+
+.accordion-content li strong {
+  color: var(--color-secondary); /* Couleur choisie pour le mode clair */
+}
+
+.accordion-content i, .accordion-content img {
+  min-width: 20px; /* Assurer l'alignement */
+}
+
+/* Fix pour les drapeaux/images */
+.accordion-content img {
+  vertical-align: middle;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* -------------------- MODE SOMBRE -------------------- */
+
+body.dark .accordion-header {
+  color: #fff;
+}
+body.dark .accordion-content {
+  background-color: var(--color-light);
+}
+body.dark .accordion-content li {
+  border-bottom-color: var(--color-subtle);
+}
+body.dark .accordion-content li:hover {
+  background-color: var(--color-subtle);
+}
+body.dark .accordion-content li strong {
+  color: var(--color-primary); /* Garder une couleur vive en mode sombre */
+}
+
+/* COULEUR BORDURE COHÉRENTE (MODE SOMBRE) */
+body.dark .accordion-item:nth-child(1) .accordion-content {
+  border-left-color: var(--color-primary);
+}
+body.dark .accordion-item:nth-child(2) .accordion-content {
+  border-left-color: var(--color-accent);
+}
+body.dark .accordion-item:nth-child(3) .accordion-content {
+  border-left-color: var(--color-secondary);
+}
+
+/* Couleurs distinctes en mode sombre (Hover) */
+body.dark .accordion-item:nth-child(1) .accordion-header:hover { background: linear-gradient(135deg, var(--color-primary), #97b9d7); }
+body.dark .accordion-item:nth-child(2) .accordion-header:hover { background: linear-gradient(135deg, var(--color-accent), #e0914d); }
+body.dark .accordion-item:nth-child(3) .accordion-header:hover { background: linear-gradient(135deg, var(--color-secondary), #8b8a8a); }
+
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 768px) {
+  main { flex-direction: column; align-items: center; }
+  main a { width: 100%; }
+}
+
+/* ===================== TOGGLE DARK/LIGHT ===================== */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: absolute; /* Position absolue */
+  top: 20px; /* 20px du haut */
+  right: 20px; /* 20px de la droite */
+  font-size: 2rem;
+  color: var(--color-primary);
+  z-index: 10;
+}
+
+.theme-toggle .fas.fa-sun {
+    color: var(--color-accent);
+}
+
+.theme-toggle .fas.fa-moon {
+    color: var(--color-primary);
+}
+
+/* Ajustement du switch en mode sombre */
+body.dark .theme-toggle .fas.fa-sun {
+    color: var(--color-secondary);
+}
+
+body.dark .theme-toggle .fas.fa-moon {
+    color: var(--color-primary);
+}
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+.switch input { display: none; }
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  background-color: var(--color-subtle);
+  border-radius: 30px;
+  transition: 0.4s;
+}
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 20px; width: 20px;
+  left: 3px; bottom: 3px;
+  background-color: var(--color-light);
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+/* Effet quand activé */
+input:checked + .slider {
+  background-color: var(--color-primary);
+}
+input:checked + .slider::before {
+  transform: translateX(24px);
+}
