@@ -1,6 +1,4 @@
-﻿/* ===================== RESET =====================
-*/
-*, *::before, *::after {
+﻿*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -11,7 +9,7 @@ html { font-size: 62.5%; }
 
 body {
   font-size: 1.6rem;
-  font-family: var(--font-body); /* Changé pour --font-body */
+  font-family: var(--font-body); 
   line-height: 1.6;
   display: flex;
   flex-direction: column;
@@ -19,7 +17,7 @@ body {
   justify-content: flex-start;
   min-height: 100vh;
   background-color: var(--color-background);
-  color: var(--color-text-dark); /* Changé pour --color-text-dark */
+  color: var(--color-text-dark); 
   margin: 0;
 }
 
@@ -31,9 +29,9 @@ body {
   --color-subtle: #D6D6D6;
   --color-background: #FFFFFF;
   --color-light: #F5F7FA;
-  --color-text-dark: #333333; /* Nouvelle variable */
-  --font-stack: 'Montserrat', sans-serif; /* Utilisé pour les titres */
-  --font-body: 'Arial', sans-serif; /* Utilisé pour le corps de texte */
+  --color-text-dark: #333333; 
+  --font-stack: 'Montserrat', sans-serif; 
+  --font-body: 'Arial', sans-serif; 
 }
 
 /* --- THEME DARK --- */
@@ -66,13 +64,12 @@ header h1 {
   margin-bottom: 1rem;
 }
 
-
 header p {
   font-size: 1.8rem;
   font-weight: 400;
   color: var(--color-secondary);
   padding: 0 1rem;
-  margin-bottom: 0.5rem; /* Ajusté pour l'espacement */
+  margin-bottom: 0.5rem; 
 }
 
 /* ===================== BIO ===================== */
@@ -107,7 +104,6 @@ body.dark header .bio-intro strong {
   color: var(--color-primary); 
 }
 
-
 /* ===================== BOUTONS PRINCIPAUX ===================== */
 main {
   display: flex;
@@ -136,10 +132,7 @@ main a {
   background-color: var(--color-primary);
   color: var(--color-light);
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease,
-              background 0.4s ease,
-              color 0.4s ease,
-              box-shadow 0.4s ease;
+  transition: transform 0.3s ease,  background 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
 }
 
 main a i {
@@ -179,11 +172,11 @@ body.dark main a.primary {
 body.dark main a.secondary {
   border-color: var(--color-primary);
   background-color: transparent;
-  color: var(--color-primary); /* Garder la couleur primaire pour le texte */
+  color: var(--color-primary); 
 }
 
 body.dark main a:hover {
-  color: var(--color-background); /* Texte sur le gradient */
+  color: var(--color-background); 
   background: linear-gradient(135deg, #c2d3ee, #e9eef1);
 }
 body.dark .accordion-header:hover {
@@ -263,7 +256,7 @@ body.dark .accordion-header:hover {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease, padding 0.4s ease, background 0.4s ease;
-  background-color: var(--color-light); /* Utilisation de light pour le fond */
+  background-color: var(--color-light); 
   padding: 0 2rem;
   border-left: 5px solid transparent;
 }
@@ -278,23 +271,21 @@ body.dark .accordion-header:hover {
   padding: 1.5rem;
 }
 .accordion-item:nth-child(1) .accordion-content.open {
-  padding-top: 2.5rem;padding-bottom: 0.5rem; /* augmente légèrement le padding pour aérer la fin */
+  padding-top: 2.5rem;padding-bottom: 0.5rem; 
 }
 .accordion-item:nth-child(2) .accordion-content.open {
-  padding-top: 2.5rem;padding-bottom: 0.5rem; /* augmente légèrement le padding pour aérer la fin */
+  padding-top: 2.5rem;padding-bottom: 0.5rem; 
 }
 .accordion-item:nth-child(3) .accordion-content.open {
- padding-top: 2.5rem; padding-bottom: 0.5rem; /* augmente légèrement le padding pour aérer la fin */
+ padding-top: 2.5rem; padding-bottom: 0.5rem; 
 }
-
-/* -------------------- COULEUR BORDURE COHÉRENTE (MODE CLAIR) -------------------- */
 
 /* Item 1 : Compétences (couleur primary) */
 .accordion-item:nth-child(1) .accordion-content {
   border-left-color: var(--color-primary);
 }
 .accordion-item:nth-child(1) .accordion-content li strong {
-  color: var(--color-secondary); /* Couleur choisie pour le mode clair */
+  color: var(--color-secondary); 
 }
 
 /* Item 2 : Expériences (couleur accent) */
@@ -302,7 +293,7 @@ body.dark .accordion-header:hover {
   border-left-color: var(--color-accent);
 }
 .accordion-item:nth-child(2) .accordion-content li strong {
-  color: var(--color-accent); /* Mettre en évidence les catégories */
+  color: var(--color-accent); 
 }
 
 /* Item 3 : Contacts / Références (couleur secondary) */
@@ -310,18 +301,16 @@ body.dark .accordion-header:hover {
   border-left-color: var(--color-secondary);
 }
 
-/* -------------------- CENTRAGE ET MARGE SECTION 3 (CONTACT) -------------------- */
+/* -------------------- CENTRAGE ET MARGE CONTACT -------------------- */
 .accordion-item:nth-child(3) .accordion-content ul {
-    /* AJOUT CLÉ pour l'espace inférieur dans la section de contact */
     padding-bottom: 1.5rem; 
 }
 
 .accordion-item:nth-child(3) .accordion-content li {
-  /* Centrage des éléments LI */
   justify-content: center;
   gap: 0.5rem;
   padding: 1rem 0;
-  border-bottom: 1px dashed var(--color-subtle); /* Maintenir la bordure */
+  border-bottom: 1px dashed var(--color-subtle);
 }
 
 .accordion-item:nth-child(3) .accordion-content li:last-child {
@@ -329,14 +318,9 @@ body.dark .accordion-header:hover {
 }
 
 .accordion-item:nth-child(3) .accordion-content li a {
-  /* Évite l'étirement du lien et centre le texte dans le lien */
-  flex-grow: 0;
-  text-align: center;
+  flex-grow: 0;text-align: center;
 }
 
-/* -------------------- FIN CENTRAGE SECTION 3 -------------------- */
-
-/* Conteneurs UL et LI GÉNÉRAUX */
 .accordion-content ul {
   list-style: none;
   padding: 0;
@@ -355,7 +339,6 @@ body.dark .accordion-header:hover {
 
 .accordion-content li:last-child {
   border-bottom: none;
-  /* Ajout d'un padding pour l'esthétique générale, mais la marge est gérée par .accordion-content.open */
   padding-bottom: 0.8rem; 
 }
 
@@ -363,25 +346,24 @@ body.dark .accordion-header:hover {
 .accordion-content li:hover {
   cursor: pointer;
   background-color: var(--color-subtle);
-  transform: translateX(2px); /* Décalage au survol */
+  transform: translateX(2px); 
 }
 
 .accordion-content li strong {
-  color: var(--color-secondary); /* Couleur choisie pour le mode clair */
+  color: var(--color-secondary); 
 }
 
 .accordion-content i, .accordion-content img {
-  min-width: 20px; /* Assurer l'alignement */
+  min-width: 20px; 
 }
 
-/* Fix pour les drapeaux/images */
 .accordion-content img {
   vertical-align: middle;
   border-radius: 4px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-/* -------------------- MODE SOMBRE -------------------- */
+/* -------------------- DARK MODE -------------------- */
 
 body.dark .accordion-header {
   color: #fff;
@@ -396,10 +378,9 @@ body.dark .accordion-content li:hover {
   background-color: var(--color-subtle);
 }
 body.dark .accordion-content li strong {
-  color: var(--color-primary); /* Garder une couleur vive en mode sombre */
+  color: var(--color-primary); 
 }
 
-/* COULEUR BORDURE COHÉRENTE (MODE SOMBRE) */
 body.dark .accordion-item:nth-child(1) .accordion-content {
   border-left-color: var(--color-primary);
 }
@@ -410,13 +391,12 @@ body.dark .accordion-item:nth-child(3) .accordion-content {
   border-left-color: var(--color-secondary);
 }
 
-/* Couleurs distinctes en mode sombre (Hover) */
 body.dark .accordion-item:nth-child(1) .accordion-header:hover { background: linear-gradient(135deg, var(--color-primary), #97b9d7); }
 body.dark .accordion-item:nth-child(2) .accordion-header:hover { background: linear-gradient(135deg, var(--color-accent), #e0914d); }
 body.dark .accordion-item:nth-child(3) .accordion-header:hover { background: linear-gradient(135deg, var(--color-secondary), #8b8a8a); }
 
 
-/* ===================== RESPONSIVE ===================== */
+/* ===================== MEDIA QUERIES ===================== */
 @media (max-width: 768px) {
   main { flex-direction: column; align-items: center; }
   main a { width: 100%; }
@@ -443,7 +423,6 @@ body.dark .accordion-item:nth-child(3) .accordion-header:hover { background: lin
     color: var(--color-primary);
 }
 
-/* Ajustement du switch en mode sombre */
 body.dark .theme-toggle .fas.fa-sun {
     color: var(--color-secondary);
 }
@@ -451,7 +430,6 @@ body.dark .theme-toggle .fas.fa-sun {
 body.dark .theme-toggle .fas.fa-moon {
     color: var(--color-primary);
 }
-
 
 .switch {
   position: relative;
@@ -480,7 +458,6 @@ body.dark .theme-toggle .fas.fa-moon {
   transition: 0.4s;
 }
 
-/* Effet quand activé */
 input:checked + .slider {
   background-color: var(--color-primary);
 }

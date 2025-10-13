@@ -5,9 +5,9 @@
      header.classList.toggle('active');
     
     if (content.style.maxHeight) {
-      content.style.maxHeight = null; // ferme le panneau
+      content.style.maxHeight = null; u
     } else {
-      content.style.maxHeight = content.scrollHeight + "px"; // ouvre le panneau
+      content.style.maxHeight = content.scrollHeight + "px"; 
     }
   });
 });
