@@ -23,9 +23,9 @@ body {
 
 /* ===================== VARIABLES GLOBALES ===================== */
 :root {
-  --color-primary: #1994aa;
-  --color-accent: #E27A07;
-  --color-secondary: #575656;
+  --color-primary: #20b1b1;
+  --color-accent: #ee6408;
+  --color-secondary: #686363;
   --color-subtle: #D6D6D6;
   --color-background: #FFFFFF;
   --color-light: #F5F7FA;
@@ -36,9 +36,9 @@ body {
 
 /* --- THEME DARK --- */
 body.dark {
-  --color-primary: #6d9ac5;
-  --color-accent: #ac5a04;
-  --color-secondary: #d1d1d1;
+  --color-primary: #20b1b1;
+  --color-accent: #ee6408;
+  --color-secondary: #a79c9c;
   --color-subtle: #555;
   --color-background: #121212;
   --color-light: #1E1E1E;
