@@ -1,48 +1,49 @@
-﻿*, *::before, *::after {
+﻿/* ===================== RESET ===================== */
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* ===================== TYPO ET LAYOUT ===================== */
+/* ===================== TYPO & LAYOUT ===================== */
 html { font-size: 62.5%; }
 
 body {
   font-size: 1.6rem;
-  font-family: var(--font-body); 
+  font-family: var(--font-body);
   line-height: 1.6;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   min-height: 100vh;
-  background-color: var(--color-background);
-  color: var(--color-text-dark); 
   margin: 0;
+  background-color: var(--color-background);
+  color: var(--color-text-dark);
 }
 
-/* ===================== VARIABLES GLOBALES ===================== */
+/* ===================== VARIABLES ===================== */
 :root {
   --color-primary: #20b1b1;
   --color-accent: #ee6408;
   --color-secondary: #686363;
-  --color-subtle: #D6D6D6;
-  --color-background: #FFFFFF;
-  --color-light: #F5F7FA;
-  --color-text-dark: #333333; 
-  --font-stack: 'Montserrat', sans-serif; 
-  --font-body: 'Arial', sans-serif; 
+  --color-subtle: #d6d6d6;
+  --color-background: #fff;
+  --color-light: #f5f7fa;
+  --color-text-dark: #333;
+  --font-stack: 'Montserrat', sans-serif;
+  --font-body: 'Arial', sans-serif;
 }
 
-/* --- THEME DARK --- */
+/* ===================== DARK THEME ===================== */
 body.dark {
   --color-primary: #20b1b1;
   --color-accent: #ee6408;
   --color-secondary: #b8adad;
   --color-subtle: #555;
   --color-background: #121212;
-  --color-light: #1E1E1E;
-  --color-text-dark: #fafafa; /* Texte clair en mode sombre */
+  --color-light: #1e1e1e;
+  --color-text-dark: #fafafa;
   background-color: var(--color-background);
   color: var(--color-secondary);
 }
@@ -69,41 +70,38 @@ header p {
   font-weight: 400;
   color: var(--color-secondary);
   padding: 0 1rem;
-  margin-bottom: 0.5rem; 
+  margin-bottom: 0.5rem;
 }
 
 /* ===================== BIO ===================== */
 header .bio-intro {
   max-width: 700px;
-  margin: 1.5rem auto 0.5rem auto;
+  margin: 1.5rem auto 0.5rem;
   padding: 1.5rem;
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   font-weight: 500;
   line-height: 1.5;
   color: var(--color-text-dark);
-  
   border-radius: 10px;
   background-color: var(--color-light);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-header .bio-intro strong {
-  color: var(--color-primary);
-  font-weight: 700;
+header .bio-intro strong { color: var(--color-primary); font-weight: 700; }
+
+.logo-bpc{
+  width: 150px;height: auto; border-radius: 10%;margin: 2rem;
 }
 
-/* Mode sombre pour la bio */
 body.dark header .bio-intro {
   background-color: var(--color-light);
   color: var(--color-secondary);
   border: 1px solid var(--color-subtle);
 }
 
-body.dark header .bio-intro strong {
-  color: var(--color-primary); 
-}
+body.dark header .bio-intro strong { color: var(--color-primary); }
 
-/* ===================== BOUTONS PRINCIPAUX ===================== */
+/* ===================== MAIN BUTTONS ===================== */
 main {
   display: flex;
   flex-wrap: wrap;
@@ -126,26 +124,18 @@ main a {
   font-weight: 600;
   text-decoration: none;
   gap: 0.5rem;
-
-  /* Effets */
   background-color: var(--color-primary);
   color: var(--color-light);
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease,  background 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+  transition: transform 0.3s, background 0.4s, color 0.4s, box-shadow 0.4s;
 }
 
-main a i {
-  transition: transform 0.3s ease;
-  font-size: 2rem;
-}
-
-main a:hover i {
-  transform: scale(1.1) rotate(5deg);
-}
+main a i { transition: transform 0.3s; font-size: 2rem; }
+main a:hover i { transform: scale(1.1) rotate(5deg); }
 
 main a.secondary {
   border: 2px solid var(--color-primary);
-  background-color: transparent;
+  background: transparent;
   color: var(--color-primary);
   box-shadow: 0 0 5px var(--color-primary) inset;
 }
@@ -157,31 +147,13 @@ main a:hover {
   box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 
-main a.secondary:hover {
-  border-color: var(--color-light);
-}
+main a.secondary:hover { border-color: var(--color-light); }
 
-body.dark main a.primary {
-  background-color: var(--color-primary);
-  color: var(--color-light);
-}
+body.dark main a.primary { background-color: var(--color-primary); color: var(--color-light); }
+body.dark main a.secondary { border-color: var(--color-primary); color: var(--color-primary); }
+body.dark main a:hover { color: var(--color-background); background: linear-gradient(135deg, #c2d3ee, #e9eef1); }
 
-body.dark main a.secondary {
-  border-color: var(--color-primary);
-  background-color: transparent;
-  color: var(--color-primary); 
-}
-
-body.dark main a:hover {
-  color: var(--color-background); 
-  background: linear-gradient(135deg, #c2d3ee, #e9eef1);
-}
-
-body.dark .accordion-header:hover {
-  color: #121212;
-}
-
-/* ===================== ACCORDÉON ===================== */
+/* ===================== ACCORDION ===================== */
 .accordion {
   width: 80%;
   max-width: 1000px;
@@ -195,9 +167,8 @@ body.dark .accordion-header:hover {
   border-radius: 0.8rem;
   overflow: hidden;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  transition: box-shadow 0.3s, transform 0.3s;
 }
-
 .accordion-item:hover {
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   transform: translateY(-2px);
@@ -208,16 +179,16 @@ body.dark .accordion-header:hover {
   padding: 1.8rem 1.5rem;
   font-weight: 600;
   font-size: 1.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   text-align: left;
   cursor: pointer;
   border: none;
   outline: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   color: var(--color-light);
-  transition: background 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
   border-radius: 0.8rem;
+  transition: background 0.4s, transform 0.3s, box-shadow 0.3s;
 }
 
 .accordion-header:hover {
@@ -229,187 +200,57 @@ body.dark .accordion-header:hover {
 
 .accordion-header::after {
   content: "▼";
-  transition: transform 0.3s ease;
+  transition: transform 0.3s;
 }
 
-.accordion-header.active::after {
-  transform: rotate(-180deg);
-}
+.accordion-header.active::after { transform: rotate(-180deg); }
 
 .accordion-item:nth-child(1) .accordion-header { background-color: var(--color-primary); }
 .accordion-item:nth-child(2) .accordion-header { background-color: var(--color-accent); }
 .accordion-item:nth-child(3) .accordion-header { background-color: var(--color-secondary); }
 
-.accordion-header i {
-  margin-right: 0.8rem;
-  font-size: 1.8rem;
-}
-
 .accordion-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.4s ease, background 0.4s ease;
-  background-color: var(--color-light); 
+  transition: max-height 0.4s, padding 0.4s, background 0.4s;
+  background-color: var(--color-light);
   padding: 0 2rem;
   border-left: 5px solid transparent;
-  text-align: flex-start;
-  text-justify: inter-word; 
-  hyphens: none;
 }
 
-.accordion-content ul {
-  padding-left: 2rem;
-}
-
+.accordion-content.open { padding: 1.5rem; }
+.accordion-content ul { list-style: none; margin: 0; padding: 0; }
 .accordion-content li {
-  display: flex;
-  gap: 1rem;
-}
-
-.accordion-content i, .accordion-content img {
-  min-width: 20px;
-}
-
-.accordion-content a {
-  text-decoration: none;
-  font-weight: 600;
-  color: var(--color-secondary);
-}
-
-.accordion-content.open {
-  padding: 1.5rem;
-}
-
-.accordion-item:nth-child(1) .accordion-content.open {
-  padding-top: 2.5rem; padding-bottom: 0.5rem; 
-}
-.accordion-item:nth-child(2) .accordion-content.open {
-  padding-top: 2.5rem; padding-bottom: 0.5rem; 
-}
-.accordion-item:nth-child(3) .accordion-content.open {
-  padding-top: 2.5rem; padding-bottom: 0.5rem; 
-}
-
-/* ✅ Règle générale déplacée ici */
-.accordion-content li strong {
-  color: var(--color-secondary); 
-}
-
-/* Item 1 : Compétences (couleur primary) */
-.accordion-item:nth-child(1) .accordion-content {
-  border-left-color: var(--color-primary);
-}
-.accordion-item:nth-child(1) .accordion-content li strong {
-  color: var(--color-primary); 
-}
-
-/* Item 2 : Expériences (couleur accent) */
-.accordion-item:nth-child(2) .accordion-content {
-  border-left-color: var(--color-accent);
-}
-.accordion-item:nth-child(2) .accordion-content li strong {
-  color: var(--color-accent); 
-}
-
-/* Item 3 : Contacts / Références (couleur secondary) */
-.accordion-item:nth-child(3) .accordion-content {
-  border-left-color: var(--color-secondary);
-}
-
-/* -------------------- CENTRAGE ET MARGE CONTACT -------------------- */
-.accordion-item:nth-child(3) .accordion-content ul {
-  padding-bottom: 1.5rem; 
-}
-
-.accordion-item:nth-child(3) .accordion-content li {
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 1rem 0;
-  border-bottom: 1px dashed var(--color-subtle);
-}
-
-.accordion-item:nth-child(3) .accordion-content li:last-child {
-  border-bottom: none;
-}
-
-.accordion-item:nth-child(3) .accordion-content li a {
-  flex-grow: 0;
-  text-align: center;
-}
-
-.accordion-content ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.accordion-content li {
-  padding: 0.8rem 0;
-  border-bottom: 1px dashed var(--color-subtle);
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  font-size: 1.5rem;
   display: flex;
   align-items: center;
   gap: 1rem;
+  font-size: 1.4rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px dashed var(--color-subtle);
+  transition: background-color 0.3s, transform 0.3s;
 }
-
-.accordion-content li:last-child {
-  border-bottom: none;
-  padding-bottom: 0.8rem; 
-}
-
+.accordion-content li:last-child { border-bottom: none; }
 .accordion-content li:hover {
   cursor: pointer;
   background-color: var(--color-subtle);
-  transform: translateX(2px); 
+  transform: translateX(2px);
 }
+.accordion-content li strong { color: var(--color-secondary); }
 
-.accordion-content i, .accordion-content img {
-  min-width: 20px; 
-}
+/* ===================== ACCORDION COLORS ===================== */
+.accordion-item:nth-child(1) .accordion-content { border-left-color: var(--color-primary); }
+.accordion-item:nth-child(1) .accordion-content li strong { color: var(--color-primary); }
 
-.accordion-content img {
-  vertical-align: middle;
-  border-radius: 4px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
+.accordion-item:nth-child(2) .accordion-content { border-left-color: var(--color-accent); }
+.accordion-item:nth-child(2) .accordion-content li strong { color: var(--color-accent); }
 
-/* ===================== MEDIA QUERIES ===================== */
-@media (max-width: 768px) {
-  main { flex-direction: column; align-items: center; }
-  main a { width: 100%; }
-  .accordion-content {
-    font-size; 0.5rem;
-  }
-}
+.accordion-item:nth-child(3) .accordion-content { border-left-color: var(--color-secondary); }
 
-/* -------------------- DARK MODE -------------------- */
-body.dark .accordion-header {
-  color: #fff;
-}
-body.dark .accordion-content {
-  background-color: var(--color-light);
-}
-body.dark .accordion-content li {
-  border-bottom-color: var(--color-subtle);
-}
-body.dark .accordion-content li:hover {
-  background-color: var(--color-subtle);
-}
-body.dark .accordion-content li strong {
-  color: var(--color-primary); 
-}
-
-body.dark .accordion-item:nth-child(1) .accordion-content {
-  border-left-color: var(--color-primary);
-}
-body.dark .accordion-item:nth-child(2) .accordion-content {
-  border-left-color: var(--color-accent);
-}
-body.dark .accordion-item:nth-child(3) .accordion-content {
-  border-left-color: var(--color-secondary);
-}
-
+/* ===================== DARK MODE ===================== */
+body.dark .accordion-header { color: #fff; }
+body.dark .accordion-content { background-color: var(--color-light); }
+body.dark .accordion-content li { border-bottom-color: var(--color-subtle); }
+body.dark .accordion-content li strong { color: var(--color-primary); }
 body.dark .accordion-item:nth-child(1) .accordion-header:hover { background: linear-gradient(135deg, var(--color-primary), #97b9d7); }
 body.dark .accordion-item:nth-child(2) .accordion-header:hover { background: linear-gradient(135deg, var(--color-accent), #e0914d); }
 body.dark .accordion-item:nth-child(3) .accordion-header:hover { background: linear-gradient(135deg, var(--color-secondary), #8b8a8a); }
@@ -427,21 +268,10 @@ body.dark .accordion-item:nth-child(3) .accordion-header:hover { background: lin
   z-index: 10;
 }
 
-.theme-toggle .fas.fa-sun {
-  color: var(--color-accent);
-}
-
-.theme-toggle .fas.fa-moon {
-  color: var(--color-primary);
-}
-
-body.dark .theme-toggle .fas.fa-sun {
-  color: var(--color-secondary);
-}
-
-body.dark .theme-toggle .fas.fa-moon {
-  color: var(--color-primary);
-}
+.theme-toggle .fas.fa-sun { color: var(--color-accent); }
+.theme-toggle .fas.fa-moon { color: var(--color-primary); }
+body.dark .theme-toggle .fas.fa-sun { color: var(--color-secondary); }
+body.dark .theme-toggle .fas.fa-moon { color: var(--color-primary); }
 
 .switch {
   position: relative;
@@ -449,19 +279,16 @@ body.dark .theme-toggle .fas.fa-moon {
   width: 50px;
   height: 26px;
 }
-
 .switch input { display: none; }
 
 .slider {
   position: absolute;
   cursor: pointer;
-  top: 0; left: 0;
-  right: 0; bottom: 0;
+  top: 0; left: 0; right: 0; bottom: 0;
   background-color: var(--color-subtle);
   border-radius: 30px;
   transition: 0.4s;
 }
-
 .slider::before {
   content: "";
   position: absolute;
@@ -471,11 +298,12 @@ body.dark .theme-toggle .fas.fa-moon {
   border-radius: 50%;
   transition: 0.4s;
 }
+input:checked + .slider { background-color: var(--color-primary); }
+input:checked + .slider::before { transform: translateX(24px); }
 
-input:checked + .slider {
-  background-color: var(--color-primary);
-}
-
-input:checked + .slider::before {
-  transform: translateX(24px);
+/* ===================== MEDIA QUERIES ===================== */
+@media (max-width: 768px) {
+  main { flex-direction: column; align-items: center; }
+  main a { width: 100%; }
+  .accordion-content { font-size: 1.2rem; }
 }
