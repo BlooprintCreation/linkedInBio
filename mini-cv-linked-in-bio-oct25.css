@@ -38,7 +38,7 @@ body {
 body.dark {
   --color-primary: #20b1b1;
   --color-accent: #ee6408;
-  --color-secondary: #a79c9c;
+  --color-secondary: #b8adad;
   --color-subtle: #555;
   --color-background: #121212;
   --color-light: #1E1E1E;
@@ -259,6 +259,25 @@ body.dark .accordion-header:hover {
   background-color: var(--color-light); 
   padding: 0 2rem;
   border-left: 5px solid transparent;
+  text-align: flex-start;
+  text-justify: inter-word; 
+  hyphens: none;
+}
+.accordion-content ul {
+  padding-left: 2rem; /* crée une marge uniforme pour tout le bloc */
+}
+
+.accordion-content li {
+  display: flex;
+  
+  gap: 1rem;
+ 
+ 
+}
+
+.accordion-content i,
+.accordion-content img {
+  min-width: 20px;
 }
 
 .accordion-content a {
@@ -285,7 +304,7 @@ body.dark .accordion-header:hover {
   border-left-color: var(--color-primary);
 }
 .accordion-item:nth-child(1) .accordion-content li strong {
-  color: var(--color-secondary); 
+  color: var(--color-primary); 
 }
 
 /* Item 2 : Expériences (couleur accent) */
@@ -363,6 +382,17 @@ body.dark .accordion-header:hover {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+/* ===================== MEDIA QUERIES ===================== */
+@media (max-width: 768px) {
+  main { flex-direction: column; align-items: center; }
+  main a { width: 100%; }
+  .accordion-content {
+    font-size; 0.5rem;
+  }
+  
+}
+
+
 /* -------------------- DARK MODE -------------------- */
 
 body.dark .accordion-header {
@@ -396,11 +426,6 @@ body.dark .accordion-item:nth-child(2) .accordion-header:hover { background: lin
 body.dark .accordion-item:nth-child(3) .accordion-header:hover { background: linear-gradient(135deg, var(--color-secondary), #8b8a8a); }
 
 
-/* ===================== MEDIA QUERIES ===================== */
-@media (max-width: 768px) {
-  main { flex-direction: column; align-items: center; }
-  main a { width: 100%; }
-}
 
 /* ===================== TOGGLE DARK/LIGHT ===================== */
 .theme-toggle {
