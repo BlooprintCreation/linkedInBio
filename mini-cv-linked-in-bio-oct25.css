@@ -38,7 +38,6 @@ body.dark {
   --color-light: var(--dark-color-light);
   --color-text-dark: var(--dark-color-text-dark);
   
-  
   background-color: var(--color-background);
   color: var(--color-text-dark); 
 }
