@@ -1,4 +1,4 @@
-﻿/* ===================== RESET ===================== */
+﻿﻿/* ===================== RESET ===================== */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -20,6 +20,7 @@ body {
   margin: 0;
   background-color: var(--color-background);
   color: var(--color-text-dark);
+  transition: background-color 0.4s, color 0.4s;
 }
 
 /* ===================== VARIABLES ===================== */
@@ -95,7 +96,7 @@ header .bio-intro strong { color: var(--color-primary); font-weight: 700; }
 
 body.dark header .bio-intro {
   background-color: var(--color-light);
-  color: var(--color-secondary);
+  color: var(--color-text-dark);
   border: 1px solid var(--color-subtle);
 }
 
@@ -212,10 +213,11 @@ body.dark main a:hover { color: var(--color-background); background: linear-grad
 .accordion-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s, padding 0.4s, background 0.4s;
   background-color: var(--color-light);
   padding: 0 2rem;
   border-left: 5px solid transparent;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.4s ease, background 0.4s ease;
 }
 
 .accordion-content.open { padding: 1.5rem; }
@@ -245,7 +247,7 @@ justify-content: center;}
     color: var(--color-secondary);
 }
 
-/* ===================== ACCORDION COLORS ===================== */
+/* ===================== ACCORDEON COLORS ===================== */
 .accordion-item:nth-child(1) .accordion-content { border-left-color: var(--color-primary); }
 .accordion-item:nth-child(1) .accordion-content li strong { color: var(--color-primary); }
 
@@ -310,8 +312,54 @@ input:checked + .slider { background-color: var(--color-primary); }
 input:checked + .slider::before { transform: translateX(24px); }
 
 /* ===================== MEDIA QUERIES ===================== */
+/* Tablettes portrait */
+@media (max-width: 1024px) {
+  header h1 { font-size: 3.6rem; }
+  header p { font-size: 1.6rem; }
+  header .bio-intro { font-size: 1.5rem; padding: 1rem; }
+  main { width: 90%; gap: 0.8rem; }
+  main a { width: 48%; padding: 1rem 1.5rem; font-size: 1.5rem; }
+  .accordion { width: 90%; }
+}
+
+/* Petits tablettes / grands smartphones */
 @media (max-width: 768px) {
   main { flex-direction: column; align-items: center; }
-  main a { width: 100%; }
-  .accordion-content { font-size: 1.2rem; }
+  main a { width: 90%; margin-bottom: 1rem; font-size: 1.4rem; }
+  header h1 { font-size: 3rem; }
+  header p { font-size: 1.4rem; }
+  header .bio-intro { font-size: 1.4rem; padding: 1rem; }
+  .accordion-content { font-size: 1.2rem; padding: 1rem; }
+}
+
+/* Smartphones */
+@media (max-width: 480px) {
+  html { font-size: 55%; }  
+  header h1 { font-size: 2.4rem; }
+  header p { font-size: 1.2rem; }
+  header .bio-intro { font-size: 1.2rem; padding: 0.8rem; }
+  main a { width: 95%; padding: 0.8rem 1rem; font-size: 1.3rem; }
+  main a i { font-size: 1.8rem; }
+  .logo-bpc { width: 120px; }
+  .accordion-header { font-size: 1.4rem; padding: 1.2rem 1rem; }
+  .accordion-content { padding: 0.8rem 1rem; font-size: 1.1rem; }
+}
+
+/* Très petits écrans */
+@media (max-width: 360px) {
+  html { font-size: 50%; }
+  header h1 { font-size: 2rem; }
+  header p { font-size: 1.1rem; }
+  main a { padding: 0.7rem 0.8rem; font-size: 1.2rem; }
+  .logo-bpc { width: 90px; }
+  .accordion-header { font-size: 1.2rem; padding: 1rem; }
+  .accordion-content { padding: 0.6rem 0.8rem; }
+  .theme-toggle { font-size: 1.8rem; top: 10px; right: 10px; }
+}
+
+/* Orientation paysage sur mobile */
+@media (max-width: 480px) and (orientation: landscape) {
+  main a { width: 48%; }
+  header .bio-intro { padding: 1rem; font-size: 1.2rem; }
+  .accordion-content { font-size: 1.1rem; }
 }

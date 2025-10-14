@@ -2,12 +2,16 @@
 document.querySelectorAll('.accordion-header').forEach(header => {
   header.addEventListener('click', () => {
     const content = header.nextElementSibling;
+    
+      document.querySelectorAll('.accordion-content').forEach(c => {
+      if (c !== content) {
+        c.style.maxHeight = null;
+        c.previousElementSibling.classList.remove('active');
+      }
+    });
+
     header.classList.toggle('active');
-    if (content.style.maxHeight) {
-      content.style.maxHeight = null;
-    } else {
-      content.style.maxHeight = content.scrollHeight + "px"; 
-    }
+    content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
   });
 });
 
@@ -26,3 +30,5 @@ toggle.addEventListener('change', () => {
   document.body.classList.toggle('dark', toggle.checked);
   localStorage.setItem('theme', toggle.checked ? 'dark' : 'light');
 });
+
+
