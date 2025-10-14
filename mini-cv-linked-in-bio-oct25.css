@@ -184,13 +184,13 @@ main a:hover {
 }
 
 main a.primary:hover i { 
-  transform: scale(1.1) rotate(5deg) translateX(50px); 
+  transform: scale(1.1) translateX(20px); 
+}
+main a.secondary:hover i { 
+  transform: scale(1.1) translateX(20px); 
 }
 
-main a.secondary:hover { 
-  border-color: var(--color-light); 
-  transform: scale(1.1) rotate(1deg) translateX(3px);
-}
+ 
 
 /* ===================== ACCORDION ===================== */
 
