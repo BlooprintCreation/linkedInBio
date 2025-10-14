@@ -90,7 +90,7 @@ header .bio-intro {
 header .bio-intro strong { color: var(--color-primary); font-weight: 700; }
 
 .logo-bpc{
-  width: 150px;height: auto; border-radius: 10%;margin: 2rem;
+  width: 150px;height: auto; border-radius: 10%;margin-bottom: 2rem;
 }
 
 body.dark header .bio-intro {
@@ -236,6 +236,12 @@ body.dark main a:hover { color: var(--color-background); background: linear-grad
   transform: translateX(2px);
 }
 .accordion-content li strong { color: var(--color-secondary); }
+
+.accordion-item:nth-child(3) ul li {
+justify-content: center;}
+.accordion-content ul li a{
+  text-decoration: none; font-weight: 600;color: var(--color-secondary); 
+}
 
 /* ===================== ACCORDION COLORS ===================== */
 .accordion-item:nth-child(1) .accordion-content { border-left-color: var(--color-primary); }
