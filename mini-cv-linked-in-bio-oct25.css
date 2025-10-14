@@ -109,30 +109,32 @@ body.dark header .bio-intro strong { color: var(--color-primary); }
 /* ===================== VIDEO ===================== */
 video {
   position: fixed;
-        top: 50%;
-        left: 50%;
-        width: 100vw;
-        height: 100vh;
-        object-fit: cover;
-        transform: translate(-50%, -50%);
-        z-index: -1;
-        opacity: 0.3;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  opacity: 0.3;
+  pointer-events: none;
 }
 
 /* ===================== BACKGROUND IMAGE ===================== */
 .pattern {
-     position: fixed; 
-     display: none;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -4;
-    background-image: url(assets/background.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    opacity: 0.4;
+  position: fixed; 
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -4;
+  background-image: url(assets/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.4;
+  pointer-events: none;
 }
 
 /* ===================== MAIN BUTTONS ===================== */
@@ -183,12 +185,11 @@ main a:hover {
   background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
   color: var(--color-light);
   box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-  
 }
 
 main a.secondary:hover { 
   border-color: var(--color-light); 
-transform: scale(1.1) rotate(1deg) translateX(3px);
+  transform: scale(1.1) rotate(1deg) translateX(3px);
 }
 
 body.dark main a.primary { background-color: var(--color-primary); color: var(--color-light); }
@@ -385,8 +386,9 @@ input:checked + .slider::before { transform: translateX(24px); }
   .accordion-header { font-size: 1.4rem; padding: 1.2rem 1rem; }
   .accordion-content { padding: 0.8rem 1rem; font-size: 1.1rem; }
 
-
- 
+  /* Sur très petits écrans, remplacer la vidéo par l'image */
+  video { display: none; }
+  .pattern { display: block; }
 }
 
 /* Très petits écrans */
@@ -399,7 +401,8 @@ input:checked + .slider::before { transform: translateX(24px); }
   .accordion-header { font-size: 1.2rem; padding: 1rem; }
   .accordion-content { padding: 0.6rem 0.8rem; }
 
- 
+  video { display: none; }
+  .pattern { display: block; }
 }
 
 /* Orientation paysage sur mobile */
@@ -407,5 +410,4 @@ input:checked + .slider::before { transform: translateX(24px); }
   main a { width: 48%; }
   header .bio-intro { padding: 1rem; font-size: 1.2rem; }
   .accordion-content { font-size: 1.1rem; }
-
 }
