@@ -21,12 +21,14 @@ body {
   background-color: var(--color-background);
   color: var(--color-text-dark);
   transition: background-color 0.4s, color 0.4s;
+  position: relative;
+  overflow-x: hidden;
 }
 
 /* ===================== VARIABLES ===================== */
 :root {
   --color-primary: #20b1b1;
-  --color-accent: #ee6408;
+  --color-accent: #db3a85;
   --color-secondary: #686363;
   --color-subtle: #d6d6d6;
   --color-background: #fff;
@@ -39,7 +41,7 @@ body {
 /* ===================== DARK THEME ===================== */
 body.dark {
   --color-primary: #20b1b1;
-  --color-accent: #ee6408;
+  --color-accent: #db3a85;
   --color-secondary: #b8adad;
   --color-subtle: #555;
   --color-background: #121212;
@@ -74,7 +76,6 @@ header p {
   margin-bottom: 0.5rem;
 }
 
-/* ===================== BIO ===================== */
 header .bio-intro {
   max-width: 700px;
   margin: 1.5rem auto 0.5rem;
@@ -91,7 +92,10 @@ header .bio-intro {
 header .bio-intro strong { color: var(--color-primary); font-weight: 700; }
 
 .logo-bpc{
-  width: 150px;height: auto; border-radius: 10%;margin-bottom: 2rem;
+  width: 150px;
+  height: auto;
+  border-radius: 10%;
+  margin-bottom: 2rem;
 }
 
 body.dark header .bio-intro {
@@ -101,6 +105,35 @@ body.dark header .bio-intro {
 }
 
 body.dark header .bio-intro strong { color: var(--color-primary); }
+
+/* ===================== VIDEO ===================== */
+video {
+  position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+        opacity: 0.3;
+}
+
+/* ===================== BACKGROUND IMAGE ===================== */
+.pattern {
+     position: fixed; 
+     display: none;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -4;
+    background-image: url(assets/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.4;
+}
 
 /* ===================== MAIN BUTTONS ===================== */
 main {
@@ -131,8 +164,12 @@ main a {
   transition: transform 0.3s, background 0.4s, color 0.4s, box-shadow 0.4s;
 }
 
-main a i { transition: transform 0.3s; font-size: 2rem; }
-main a:hover i { transform: scale(1.1) rotate(5deg); }
+main a i { 
+  transition: transform 0.3s; font-size: 2rem; 
+}
+main a:hover i { 
+  transform: scale(1.1) rotate(5deg) translateX(50px); 
+}
 
 main a.secondary {
   border: 2px solid var(--color-primary);
@@ -142,17 +179,21 @@ main a.secondary {
 }
 
 main a:hover {
-  transform: translateY(-2px) scale(1.05);
+  transform: translateY(-2px) scale(1.02);
   background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
   color: var(--color-light);
   box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  
 }
 
-main a.secondary:hover { border-color: var(--color-light); }
+main a.secondary:hover { 
+  border-color: var(--color-light); 
+transform: scale(1.1) rotate(1deg) translateX(3px);
+}
 
 body.dark main a.primary { background-color: var(--color-primary); color: var(--color-light); }
 body.dark main a.secondary { border-color: var(--color-primary); color: var(--color-primary); }
-body.dark main a:hover { color: var(--color-background); background: linear-gradient(135deg, #c2d3ee, #e9eef1); }
+body.dark main a:hover { color: var(--color-background); background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); }
 
 /* ===================== ACCORDION ===================== */
 .accordion {
@@ -216,7 +257,6 @@ body.dark main a:hover { color: var(--color-background); background: linear-grad
   background-color: var(--color-light);
   padding: 0 2rem;
   border-left: 5px solid transparent;
-  overflow: hidden;
   transition: max-height 0.5s ease, padding 0.4s ease, background 0.4s ease;
 }
 
@@ -240,14 +280,15 @@ body.dark main a:hover { color: var(--color-background); background: linear-grad
 .accordion-content li strong { color: var(--color-secondary); }
 
 .accordion-item:nth-child(3) ul li {
-justify-content: center;}
+  justify-content: center;
+}
 .accordion-item:nth-child(3) .accordion-content ul li a {
     text-decoration: none; 
     font-weight: 600;
     color: var(--color-secondary);
 }
 
-/* ===================== ACCORDEON COLORS ===================== */
+/* ===================== ACCORDION COLORS ===================== */
 .accordion-item:nth-child(1) .accordion-content { border-left-color: var(--color-primary); }
 .accordion-item:nth-child(1) .accordion-content li strong { color: var(--color-primary); }
 
@@ -261,9 +302,9 @@ body.dark .accordion-header { color: #fff; }
 body.dark .accordion-content { background-color: var(--color-light); }
 body.dark .accordion-content li { border-bottom-color: var(--color-subtle); }
 body.dark .accordion-content li strong { color: var(--color-primary); }
-body.dark .accordion-item:nth-child(1) .accordion-header:hover { background: linear-gradient(135deg, var(--color-primary), #97b9d7); }
+body.dark .accordion-item:nth-child(1) .accordion-header:hover { background: linear-gradient(135deg, var(--color-primary), #e0914d); }
 body.dark .accordion-item:nth-child(2) .accordion-header:hover { background: linear-gradient(135deg, var(--color-accent), #e0914d); }
-body.dark .accordion-item:nth-child(3) .accordion-header:hover { background: linear-gradient(135deg, var(--color-secondary), #8b8a8a); }
+body.dark .accordion-item:nth-child(3) .accordion-header:hover { background: linear-gradient(135deg, var(--color-secondary), var(--color-accent)); }
 
 /* ===================== TOGGLE DARK/LIGHT ===================== */
 .theme-toggle {
@@ -343,6 +384,10 @@ input:checked + .slider::before { transform: translateX(24px); }
   .logo-bpc { width: 120px; }
   .accordion-header { font-size: 1.4rem; padding: 1.2rem 1rem; }
   .accordion-content { padding: 0.8rem 1rem; font-size: 1.1rem; }
+
+  /* Sur très petits écrans, remplacer la vidéo par l'image */
+  video { display: none; }
+  .pattern { display: block; }
 }
 
 /* Très petits écrans */
@@ -354,7 +399,9 @@ input:checked + .slider::before { transform: translateX(24px); }
   .logo-bpc { width: 90px; }
   .accordion-header { font-size: 1.2rem; padding: 1rem; }
   .accordion-content { padding: 0.6rem 0.8rem; }
-  .theme-toggle { font-size: 1.8rem; top: 10px; right: 10px; }
+
+  video { display: none; }
+  .pattern { display: block; }
 }
 
 /* Orientation paysage sur mobile */
@@ -362,4 +409,7 @@ input:checked + .slider::before { transform: translateX(24px); }
   main a { width: 48%; }
   header .bio-intro { padding: 1rem; font-size: 1.2rem; }
   .accordion-content { font-size: 1.1rem; }
+
+  video { display: none; }
+  .pattern { display: block; }
 }
