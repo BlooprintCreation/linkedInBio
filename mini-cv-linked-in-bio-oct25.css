@@ -73,7 +73,6 @@ header p {
 }
 
 /* ===================== BIO ===================== */
- 
 header .bio-intro {
   max-width: 700px;
   margin: 1.5rem auto 0.5rem auto;
@@ -136,22 +135,21 @@ main a {
 }
 
 main a i {
-  transition: transform 0.3s ease; /* Transition pour l'icône */
+  transition: transform 0.3s ease;
   font-size: 2rem;
 }
 
 main a:hover i {
-  transform: scale(1.1) rotate(5deg); /* Animation de l'icône au survol */
+  transform: scale(1.1) rotate(5deg);
 }
 
 main a.secondary {
   border: 2px solid var(--color-primary);
   background-color: transparent;
   color: var(--color-primary);
-  box-shadow: 0 0 5px var(--color-primary) inset; /* Lueur subtile */
+  box-shadow: 0 0 5px var(--color-primary) inset;
 }
 
-/* Hover - Gradient et glow */
 main a:hover {
   transform: translateY(-2px) scale(1.05);
   background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
@@ -160,10 +158,9 @@ main a:hover {
 }
 
 main a.secondary:hover {
-  border-color: var(--color-light); /* Ligne moins visible au survol */
+  border-color: var(--color-light);
 }
 
-/* Mode sombre boutons */
 body.dark main a.primary {
   background-color: var(--color-primary);
   color: var(--color-light);
@@ -179,6 +176,7 @@ body.dark main a:hover {
   color: var(--color-background); 
   background: linear-gradient(135deg, #c2d3ee, #e9eef1);
 }
+
 body.dark .accordion-header:hover {
   color: #121212;
 }
@@ -222,7 +220,6 @@ body.dark .accordion-header:hover {
   border-radius: 0.8rem;
 }
 
-/* Hover header - gradient et glow */
 .accordion-header:hover {
   transform: translateY(-2px) scale(1.01);
   background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
@@ -230,7 +227,6 @@ body.dark .accordion-header:hover {
   filter: brightness(1.05);
 }
 
-/* flèche animée */
 .accordion-header::after {
   content: "▼";
   transition: transform 0.3s ease;
@@ -240,18 +236,15 @@ body.dark .accordion-header:hover {
   transform: rotate(-180deg);
 }
 
-/* Couleurs distinctes (mode clair) */
 .accordion-item:nth-child(1) .accordion-header { background-color: var(--color-primary); }
 .accordion-item:nth-child(2) .accordion-header { background-color: var(--color-accent); }
 .accordion-item:nth-child(3) .accordion-header { background-color: var(--color-secondary); }
 
-/* icône à gauche du texte */
 .accordion-header i {
   margin-right: 0.8rem;
   font-size: 1.8rem;
 }
 
-/* Contenu accordéon */
 .accordion-content {
   max-height: 0;
   overflow: hidden;
@@ -263,20 +256,17 @@ body.dark .accordion-header:hover {
   text-justify: inter-word; 
   hyphens: none;
 }
+
 .accordion-content ul {
-  padding-left: 2rem; /* crée une marge uniforme pour tout le bloc */
+  padding-left: 2rem;
 }
 
 .accordion-content li {
   display: flex;
-  
   gap: 1rem;
- 
- 
 }
 
-.accordion-content i,
-.accordion-content img {
+.accordion-content i, .accordion-content img {
   min-width: 20px;
 }
 
@@ -289,14 +279,20 @@ body.dark .accordion-header:hover {
 .accordion-content.open {
   padding: 1.5rem;
 }
+
 .accordion-item:nth-child(1) .accordion-content.open {
-  padding-top: 2.5rem;padding-bottom: 0.5rem; 
+  padding-top: 2.5rem; padding-bottom: 0.5rem; 
 }
 .accordion-item:nth-child(2) .accordion-content.open {
-  padding-top: 2.5rem;padding-bottom: 0.5rem; 
+  padding-top: 2.5rem; padding-bottom: 0.5rem; 
 }
 .accordion-item:nth-child(3) .accordion-content.open {
- padding-top: 2.5rem; padding-bottom: 0.5rem; 
+  padding-top: 2.5rem; padding-bottom: 0.5rem; 
+}
+
+/* ✅ Règle générale déplacée ici */
+.accordion-content li strong {
+  color: var(--color-secondary); 
 }
 
 /* Item 1 : Compétences (couleur primary) */
@@ -322,7 +318,7 @@ body.dark .accordion-header:hover {
 
 /* -------------------- CENTRAGE ET MARGE CONTACT -------------------- */
 .accordion-item:nth-child(3) .accordion-content ul {
-    padding-bottom: 1.5rem; 
+  padding-bottom: 1.5rem; 
 }
 
 .accordion-item:nth-child(3) .accordion-content li {
@@ -333,11 +329,12 @@ body.dark .accordion-header:hover {
 }
 
 .accordion-item:nth-child(3) .accordion-content li:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .accordion-item:nth-child(3) .accordion-content li a {
-  flex-grow: 0;text-align: center;
+  flex-grow: 0;
+  text-align: center;
 }
 
 .accordion-content ul {
@@ -361,15 +358,10 @@ body.dark .accordion-header:hover {
   padding-bottom: 0.8rem; 
 }
 
-
 .accordion-content li:hover {
   cursor: pointer;
   background-color: var(--color-subtle);
   transform: translateX(2px); 
-}
-
-.accordion-content li strong {
-  color: var(--color-secondary); 
 }
 
 .accordion-content i, .accordion-content img {
@@ -389,12 +381,9 @@ body.dark .accordion-header:hover {
   .accordion-content {
     font-size; 0.5rem;
   }
-  
 }
 
-
 /* -------------------- DARK MODE -------------------- */
-
 body.dark .accordion-header {
   color: #fff;
 }
@@ -425,35 +414,33 @@ body.dark .accordion-item:nth-child(1) .accordion-header:hover { background: lin
 body.dark .accordion-item:nth-child(2) .accordion-header:hover { background: linear-gradient(135deg, var(--color-accent), #e0914d); }
 body.dark .accordion-item:nth-child(3) .accordion-header:hover { background: linear-gradient(135deg, var(--color-secondary), #8b8a8a); }
 
-
-
 /* ===================== TOGGLE DARK/LIGHT ===================== */
 .theme-toggle {
   display: flex;
   align-items: center;
   gap: 1rem;
-  position: absolute; /* Position absolue */
-  top: 20px; /* 20px du haut */
-  right: 20px; /* 20px de la droite */
+  position: absolute;
+  top: 20px;
+  right: 20px;
   font-size: 2rem;
   color: var(--color-primary);
   z-index: 10;
 }
 
 .theme-toggle .fas.fa-sun {
-    color: var(--color-accent);
+  color: var(--color-accent);
 }
 
 .theme-toggle .fas.fa-moon {
-    color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 body.dark .theme-toggle .fas.fa-sun {
-    color: var(--color-secondary);
+  color: var(--color-secondary);
 }
 
 body.dark .theme-toggle .fas.fa-moon {
-    color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .switch {
@@ -462,6 +449,7 @@ body.dark .theme-toggle .fas.fa-moon {
   width: 50px;
   height: 26px;
 }
+
 .switch input { display: none; }
 
 .slider {
@@ -473,6 +461,7 @@ body.dark .theme-toggle .fas.fa-moon {
   border-radius: 30px;
   transition: 0.4s;
 }
+
 .slider::before {
   content: "";
   position: absolute;
@@ -486,6 +475,7 @@ body.dark .theme-toggle .fas.fa-moon {
 input:checked + .slider {
   background-color: var(--color-primary);
 }
+
 input:checked + .slider::before {
   transform: translateX(24px);
 }
