@@ -386,9 +386,7 @@ input:checked + .slider::before { transform: translateX(24px); }
   .accordion-header { font-size: 1.4rem; padding: 1.2rem 1rem; }
   .accordion-content { padding: 0.8rem 1rem; font-size: 1.1rem; }
 
-  /* Sur très petits écrans, remplacer la vidéo par l'image */
-  video { display: none; }
-  .pattern { display: block; }
+  
 }
 
 /* Très petits écrans */
@@ -400,9 +398,7 @@ input:checked + .slider::before { transform: translateX(24px); }
   .logo-bpc { width: 90px; }
   .accordion-header { font-size: 1.2rem; padding: 1rem; }
   .accordion-content { padding: 0.6rem 0.8rem; }
-
-  video { display: none; }
-  .pattern { display: block; }
+ 
 }
 
 /* Orientation paysage sur mobile */
