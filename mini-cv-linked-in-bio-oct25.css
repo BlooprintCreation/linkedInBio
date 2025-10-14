@@ -239,8 +239,10 @@ body.dark main a:hover { color: var(--color-background); background: linear-grad
 
 .accordion-item:nth-child(3) ul li {
 justify-content: center;}
-.accordion-content ul li a{
-  text-decoration: none; font-weight: 600;color: var(--color-secondary); 
+.accordion-item:nth-child(3) .accordion-content ul li a {
+    text-decoration: none; 
+    font-weight: 600;
+    color: var(--color-secondary);
 }
 
 /* ===================== ACCORDION COLORS ===================== */
