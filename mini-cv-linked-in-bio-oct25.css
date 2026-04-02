@@ -292,32 +292,48 @@ input:checked + .slider::before { transform: translateX(24px); background-color:
   header p { font-size: 1.6rem; }
   header .bio-intro { font-size: 1.5rem; padding: 1rem; }
 
-  main { width: 90%; gap: 0.8rem; }
-  main a { flex: 1 1 48%; padding: 1rem 1.5rem; font-size: 1.5rem; }
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 90%;
+    gap: 0.8rem;
+  }
+
+  main a {
+    flex: 0 1 calc(48% - 0.8rem);
+    max-width: 350px;
+    min-width: 200px;
+    padding: 1rem 1.5rem;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
 
   .accordion { width: 90%; }
 }
 
 @media (max-width: 768px) {
+  header h1 { font-size: 3rem; }
+  header p { font-size: 1.4rem; }
+  header .bio-intro { font-size: 1.4rem; padding: 1rem; }
+
   main {
-    flex-direction: row;       
-    flex-wrap: wrap;           
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     width: 90%;
     gap: 1rem;
   }
 
   main a {
-    flex: 1 1 45%;             
-    max-width: 300px;        
-    min-width: 200px;          
-    margin-bottom: 1rem;
+    flex: 0 1 calc(50% - 0.5rem);
+    max-width: 300px;
+    min-width: 200px;
+    padding: 1rem 1.5rem;
     font-size: 1.4rem;
+    margin-bottom: 1rem;
+    text-align: center;
   }
-
-  header h1 { font-size: 3rem; }
-  header p { font-size: 1.4rem; }
-  header .bio-intro { font-size: 1.4rem; padding: 1rem; }
 
   .accordion-content { font-size: 1.2rem; padding: 1rem 2rem; }
 
@@ -333,7 +349,21 @@ input:checked + .slider::before { transform: translateX(24px); background-color:
   header p { font-size: 1.2rem; }
   header .bio-intro { font-size: 1.2rem; padding: 0.8rem; }
 
-  main a { padding: 0.8rem 1rem; font-size: 1.3rem; }
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    gap: 0.8rem;
+  }
+
+  main a {
+    flex: 0 1 100%;
+    max-width: 100%;
+    padding: 0.8rem 1rem;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
 
   main a i { font-size: 1.8rem; }
   .logo-bpc { width: 120px; }
@@ -346,14 +376,24 @@ input:checked + .slider::before { transform: translateX(24px); background-color:
   header h1 { font-size: 2rem; }
   header p { font-size: 1.1rem; }
 
-  main a { padding: 0.7rem 0.8rem; font-size: 1.2rem; }
+  main a {
+    flex: 0 1 100%;
+    padding: 0.7rem 0.8rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+
   .logo-bpc { width: 90px; }
   .accordion-header { font-size: 1.2rem; padding: 1rem; }
   .accordion-content { padding: 0.6rem 2rem; }
 }
 
 @media (max-width: 480px) and (orientation: landscape) {
-  main a { flex: 1 1 48%; }
+  main a {
+    flex: 0 1 calc(48% - 0.5rem); /* 2 boutons côte à côte en paysage */
+    max-width: 300px;
+  }
+
   header .bio-intro { padding: 1rem; font-size: 1.2rem; }
   .accordion-content { font-size: 1.1rem; }
 }
