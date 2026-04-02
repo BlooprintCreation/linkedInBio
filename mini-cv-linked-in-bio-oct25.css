@@ -119,7 +119,7 @@ video {
 main {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   gap: 1rem;
   width: 80%;
   max-width: 1000px;
@@ -131,7 +131,7 @@ main a {
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 100%;
+  flex: 1 1 45%;
   padding: 1.2rem 2rem;
   border-radius: 0.8rem;
   font-weight: 600;
