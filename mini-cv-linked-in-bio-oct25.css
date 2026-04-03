@@ -1,4 +1,4 @@
-﻿﻿/* ===================== RESET ===================== */
+﻿﻿ /* ===================== RESET ===================== */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -32,9 +32,18 @@ body.dark {
   --color-light: var(--dark-color-light);
   --color-text-dark: var(--dark-color-text-dark);
   background-color: var(--color-background);
-  color: var(--color-text-dark); 
+  color: var(--color-text-dark);
 }
 
+body.dark header .bio-intro { border: 1px solid var(--color-subtle); }
+body.dark .accordion-content { background-color: #222; }
+body.dark .accordion-content li { border-bottom-color: var(--color-subtle); }
+body.dark .accordion-content li strong { color: var(--color-primary); }
+body.dark .theme-toggle .fa-sun { color: var(--color-secondary); }
+body.dark .theme-toggle .fa-moon { color: var(--color-primary); }
+body.dark .accordion-content li:hover {
+  background-color: rgba(255, 255, 255, 0.1);  
+}
 /* ===================== TYPO & LAYOUT ===================== */
 html { font-size: 62.5%; }
 body {
@@ -46,7 +55,6 @@ body {
   align-items: center;
   justify-content: flex-start;
   min-height: 100vh;
-  margin: 0;
   background-color: var(--color-background);
   color: var(--color-text-dark);
   transition: background-color 0.4s, color 0.4s;
@@ -90,16 +98,7 @@ header .bio-intro {
   transition: background-color 0.4s, color 0.4s;
 }
 header .bio-intro strong { color: var(--color-primary); font-weight: 700; }
-.logo-bpc {
-  width: 150px;
-  height: auto;
-  border-radius: 10%;
-  margin-bottom: 2rem;
-}
-body.dark header .bio-intro {
-  border: 1px solid var(--color-subtle);
-}
-body.dark header .bio-intro strong { color: var(--color-primary); }
+.logo-bpc { width: 150px; height: auto; border-radius: 10%; margin-bottom: 2rem; }
 
 /* ===================== VIDEO ===================== */
 video {
@@ -140,7 +139,7 @@ main a {
   text-decoration: none;
   gap: 0.5rem;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: transform 0.3s, background 0.4s, color 0.4s, box-shadow 0.4s;
+  transition: transform 0.3s, background-color 0.4s, color 0.4s, box-shadow 0.4s;
 }
 main a.primary { background-color: var(--color-primary); color: var(--color-light); }
 main a.secondary {
@@ -151,12 +150,12 @@ main a.secondary {
 }
 main a i { transition: transform 0.3s; font-size: 2rem; }
 main a:hover {
-  transform: translateY(-2px); /* suppression du scale pour éviter overflow */
+  transform: translateY(-2px);
   background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
   color: var(--color-light);
   box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
-main a.primary:hover i { transform: scale(1.1) translateX(20px); }
+main a.primary:hover i,
 main a.secondary:hover i { transform: scale(1.1) translateX(20px); }
 
 /* ===================== ACCORDION ===================== */
@@ -184,13 +183,12 @@ main a.secondary:hover i { transform: scale(1.1) translateX(20px); }
   display: flex;
   justify-content: space-between;
   align-items: center;
-  text-align: left;
   cursor: pointer;
   border: none;
   outline: none;
   color: var(--color-light);
   border-radius: 0.8rem;
-  transition: background 0.4s, transform 0.3s, box-shadow 0.3s;
+  transition: background-color 0.4s, transform 0.3s, box-shadow 0.3s;
 }
 .accordion-header:hover {
   transform: translateY(-2px) scale(1.01);
@@ -199,7 +197,7 @@ main a.secondary:hover i { transform: scale(1.1) translateX(20px); }
   filter: brightness(1.05);
 }
 .accordion-header::after { content: "▼"; transition: transform 0.3s; }
-.accordion-header.active::after { content: "▲"; transform: rotate(0deg); }
+.accordion-header.active::after { content: "▲"; }
 
 .accordion-item:nth-child(1) .accordion-header { background-color: var(--color-primary); }
 .accordion-item:nth-child(2) .accordion-header { background-color: var(--color-accent); }
@@ -213,22 +211,22 @@ main a.secondary:hover i { transform: scale(1.1) translateX(20px); }
   border-left: 5px solid transparent;
   transition: height 0.4s ease, padding 0.4s ease;
 }
-.accordion-content.open {
-  padding: 1.5rem 2rem 2rem 2rem; 
-}
+.accordion-content.open { padding: 1.5rem 2rem 2rem 2rem; }
 .accordion-content ul { list-style: none; margin: 0; padding: 0; }
 .accordion-content li {
   display: flex;
   align-items: center;
   gap: 1rem;
   font-size: 1.4rem;
-  padding: 1rem 0; 
+  padding: 1rem 0;
   border-bottom: 1px dashed var(--color-subtle);
   transition: background-color 0.3s, transform 0.3s;
   color: var(--color-text-dark);
 }
 .accordion-content li:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
-.accordion-content li:hover { cursor: pointer; background-color: color-mix(in srgb, var(--color-subtle) 50%, transparent); transform: translateX(2px); }
+.accordion-content li:hover {  cursor: pointer; 
+  background-color: rgba(32, 177, 177, 0.1);  
+  transform: translateX(3px); }
 .accordion-content li strong { color: var(--color-secondary); }
 
 .accordion-item:nth-child(3) ul li { justify-content: center; }
@@ -239,13 +237,6 @@ main a.secondary:hover i { transform: scale(1.1) translateX(20px); }
 .accordion-item:nth-child(2) .accordion-content { border-left-color: var(--color-accent); }
 .accordion-item:nth-child(2) .accordion-content li strong { color: var(--color-accent); }
 .accordion-item:nth-child(3) .accordion-content { border-left-color: var(--color-secondary); }
-
-body.dark .accordion-content { background-color: var(--color-light); }
-body.dark .accordion-content li { border-bottom-color: var(--color-subtle); }
-body.dark .accordion-content li strong { color: var(--color-primary); }
-body.dark .accordion-item:nth-child(1) .accordion-header:hover { background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 80%, black)); }
-body.dark .accordion-item:nth-child(2) .accordion-header:hover { background: linear-gradient(135deg, var(--color-accent), color-mix(in srgb, var(--color-accent) 80%, black)); }
-body.dark .accordion-item:nth-child(3) .accordion-header:hover { background: linear-gradient(135deg, var(--color-secondary), color-mix(in srgb, var(--color-secondary) 80%, black)); }
 
 /* ===================== THEME TOGGLE ===================== */
 .theme-toggle {
@@ -261,9 +252,6 @@ body.dark .accordion-item:nth-child(3) .accordion-header:hover { background: lin
 .theme-toggle .fas { transition: color 0.4s; }
 .theme-toggle .fa-sun { color: var(--color-accent); }
 .theme-toggle .fa-moon { color: var(--color-primary); }
-body.dark .theme-toggle .fa-sun { color: var(--color-secondary); }
-body.dark .theme-toggle .fa-moon { color: var(--color-primary); }
-
 .switch { position: relative; display: inline-block; width: 50px; height: 26px; }
 .switch input { display: none; }
 .slider {
@@ -286,114 +274,56 @@ body.dark .theme-toggle .fa-moon { color: var(--color-primary); }
 input:checked + .slider { background-color: var(--color-primary); }
 input:checked + .slider::before { transform: translateX(24px); background-color: var(--color-light); }
 
+/* ===================== ACCESSIBILITY FOCUS ===================== */
+main a:focus, .accordion-header:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
 /* ===================== MEDIA QUERIES ===================== */
 @media (max-width: 1024px) {
   header h1 { font-size: 3.6rem; }
   header p { font-size: 1.6rem; }
   header .bio-intro { font-size: 1.5rem; padding: 1rem; }
-
-  main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 90%;
-    gap: 0.8rem;
-  }
-
-  main a {
-    flex: 0 1 calc(48% - 0.8rem);
-    max-width: 350px;
-    min-width: 200px;
-    padding: 1rem 1.5rem;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-
+  main { width: 90%; gap: 0.8rem; }
+  main a { flex: 0 1 calc(48% - 0.8rem); max-width: 350px; min-width: 200px; padding: 1rem 1.5rem; font-size: 1.5rem; margin-bottom: 1rem; }
   .accordion { width: 90%; }
 }
-
 @media (max-width: 768px) {
   header h1 { font-size: 3rem; }
   header p { font-size: 1.4rem; }
   header .bio-intro { font-size: 1.4rem; padding: 1rem; }
-
-  main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 90%;
-    gap: 1rem;
-  }
-
-  main a {
-    flex: 0 1 calc(50% - 0.5rem);
-    max-width: 300px;
-    min-width: 200px;
-    padding: 1rem 1.5rem;
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-
+  main { width: 90%; gap: 1rem; }
+  main a { flex: 0 1 calc(50% - 0.5rem); max-width: 300px; min-width: 200px; padding: 1rem 1.5rem; font-size: 1.4rem; margin-bottom: 1rem; text-align: center; }
   .accordion-content { font-size: 1.2rem; padding: 1rem 2rem; }
-
   .theme-toggle { top: 10px; right: 10px; gap: 0.5rem; font-size: 1.8rem; }
   .switch { width: 45px; height: 24px; }
   .slider::before { height: 18px; width: 18px; left: 3px; bottom: 3px; }
   input:checked + .slider::before { transform: translateX(20px); }
 }
-
 @media (max-width: 480px) {
   html { font-size: 55%; }
   header h1 { font-size: 2.4rem; }
   header p { font-size: 1.2rem; }
   header .bio-intro { font-size: 1.2rem; padding: 0.8rem; }
-
-  main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 95%;
-    gap: 0.8rem;
-  }
-
-  main a {
-    flex: 0 1 100%;
-    max-width: 100%;
-    padding: 0.8rem 1rem;
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-  }
-
+  main { flex-direction: column; align-items: center; width: 95%; gap: 0.8rem; }
+  main a { flex: 0 1 100%; max-width: 100%; padding: 0.8rem 1rem; font-size: 1.3rem; margin-bottom: 1rem; }
   main a i { font-size: 1.8rem; }
   .logo-bpc { width: 120px; }
   .accordion-header { font-size: 1.4rem; padding: 1.2rem 1rem; }
   .accordion-content { font-size: 1.1rem; padding: 0.8rem 2rem; }
 }
-
 @media (max-width: 360px) {
   html { font-size: 50%; }
   header h1 { font-size: 2rem; }
   header p { font-size: 1.1rem; }
-
-  main a {
-    flex: 0 1 100%;
-    padding: 0.7rem 0.8rem;
-    font-size: 1.2rem;
-    margin-bottom: 0.8rem;
-  }
-
+  main a { flex: 0 1 100%; padding: 0.7rem 0.8rem; font-size: 1.2rem; margin-bottom: 0.8rem; }
   .logo-bpc { width: 90px; }
   .accordion-header { font-size: 1.2rem; padding: 1rem; }
   .accordion-content { padding: 0.6rem 2rem; }
 }
-
 @media (max-width: 480px) and (orientation: landscape) {
-  main a {
-    flex: 0 1 calc(48% - 0.5rem); /* 2 boutons côte à côte en paysage */
-    max-width: 300px;
-  }
-
+  main a { flex: 0 1 calc(48% - 0.5rem); max-width: 300px; }
   header .bio-intro { padding: 1rem; font-size: 1.2rem; }
   .accordion-content { font-size: 1.1rem; }
 }

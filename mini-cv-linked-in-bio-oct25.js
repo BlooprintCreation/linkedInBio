@@ -1,69 +1,72 @@
-﻿// --- DARK/LIGHT TOGGLE ---
-const toggle = document.getElementById('theme-toggle');
+﻿ document.addEventListener('DOMContentLoaded', () => {
+  /* ===================== DARK MODE TOGGLE ===================== */
+  const toggleInput = document.querySelector('.switch input');
+  toggleInput.addEventListener('change', () => {
+    document.body.classList.toggle('dark', toggleInput.checked);
+  });
 
-function applyTheme(isDark) {
-    document.body.classList.toggle('dark', isDark);
-    if (toggle) toggle.checked = isDark;
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-}
+  /* ===================== ACCORDIONS ===================== */
+  const headers = document.querySelectorAll('.accordion-header');
 
-function initializeTheme() {
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches;
-    let initialIsDark = savedTheme === 'dark' ? true : savedTheme === 'light' ? false : prefersDark;
-    applyTheme(initialIsDark);
-}
+  headers.forEach(header => {
+    header.addEventListener('click', () => {
+      const content = header.nextElementSibling;
+      const isOpen = header.classList.contains('active');
 
-document.addEventListener('DOMContentLoaded', () => {
-    initializeTheme();
-
-    if (toggle) {
-        toggle.addEventListener('change', () => applyTheme(toggle.checked));
-    }
-
-    // --- ACCORDÉON ---
-    const headers = document.querySelectorAll('.accordion-header');
-
-    headers.forEach(header => {
-        header.addEventListener('click', () => {
-            const content = header.nextElementSibling;
-            const isOpen = header.classList.contains('active');
-
-            // Fermer tous les autres
-            headers.forEach(h => {
-                const c = h.nextElementSibling;
-                h.classList.remove('active');
-                if (c) {
-                    c.style.height = c.scrollHeight + 'px';
-                    requestAnimationFrame(() => {
-                        c.style.transition = 'height 0.4s ease';
-                        c.style.height = '0';
-                    });
-                    c.classList.remove('open');
-                }
+      // Fermer tous les autres accordéons sauf celui cliqué
+      headers.forEach(h => {
+        const c = h.nextElementSibling;
+        if (h !== header) {
+          h.classList.remove('active');
+          if (c && c.classList.contains('open')) {
+            c.style.height = c.scrollHeight + 'px';
+            c.style.overflow = 'hidden';
+            requestAnimationFrame(() => {
+              c.style.transition = 'height 0.3s ease';
+              c.style.height = '0';
             });
+            c.classList.remove('open');
+            h.setAttribute('aria-expanded', 'false');
+          }
+        }
+      });
 
-            // Ouvrir celui cliqué
-            if (!isOpen && content) {
-                header.classList.add('active');
-                content.classList.add('open');
-                content.style.transition = 'none';
-                content.style.height = '0';
-                requestAnimationFrame(() => {
-                    content.style.transition = 'height 0.4s ease';
-                    content.style.height = content.scrollHeight + 'px';
-                });
+      if (content) {
+        content.style.overflow = 'hidden';
+        if (isOpen) {
+          // Si déjà ouvert, refermer
+          header.classList.remove('active');
+          content.style.height = content.scrollHeight + 'px';
+          requestAnimationFrame(() => {
+            content.style.transition = 'height 0.3s ease';
+            content.style.height = '0';
+          });
+          content.classList.remove('open');
+          header.setAttribute('aria-expanded', 'false');
+        } else {
+          // Ouvrir l'accordéon
+          header.classList.add('active');
+          content.classList.add('open');
+          content.style.transition = 'none';
+          content.style.height = '0';
+          requestAnimationFrame(() => {
+            content.style.transition = 'height 0.3s ease';
+            content.style.height = content.scrollHeight + 'px';
+          });
 
-                // Après transition, passer à auto pour no saccades au resize
-                content.addEventListener('transitionend', function handler() {
-                    if (content.classList.contains('open')) {
-                        content.style.transition = 'none';
-                        content.style.height = 'auto';
-                    }
-                    content.removeEventListener('transitionend', handler);
-                });
+          // Ajuster à auto après animation
+          const handler = () => {
+            if (content.classList.contains('open')) {
+              content.style.transition = 'none';
+              content.style.height = 'auto';
+              content.style.overflow = 'visible';
             }
-        });
+            content.removeEventListener('transitionend', handler);
+          };
+          content.addEventListener('transitionend', handler);
+          header.setAttribute('aria-expanded', 'true');
+        }
+      }
     });
+  });
 });
